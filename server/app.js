@@ -4,21 +4,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const cors = require('cors');
 const config_1 = require("./config");
 const mongoose_1 = require("mongoose");
 const cardRouter_1 = require("./routers/cardRouter");
 const path_1 = __importDefault(require("path"));
-const cors = require("cors");
 const app = (0, express_1.default)();
+app.use(cors({
+    origin: 'https://inenglish-1.onrender.com'
+}));
 app.use(express_1.default.static(path_1.default.join(__dirname, '..', 'client', 'dist')));
 app.get('*', (req, res) => {
     res.sendFile(path_1.default.join(__dirname, '..', 'client', 'dist', 'index.html'));
 });
-const corsOption = {
-    origin: "https://inenglish.onrender.com",
-    optionsSuccessStatus: 200
-};
-app.use(cors(corsOption));
 (0, mongoose_1.connect)(config_1.MONGO);
 console.log(config_1.MONGO, config_1.PORT);
 app.use(express_1.default.urlencoded({ extended: true }));
