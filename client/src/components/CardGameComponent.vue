@@ -30,7 +30,7 @@
 </main>
 </template>
 <script>
-import axios from 'axios';
+import apiClient from '@/apiClient';
 export default {
     name: "CardGameComponent",
     data() {
@@ -61,7 +61,7 @@ export default {
         }
     },
     async mounted() {
-        const result = await axios.get("/api/card")
+        const result = await apiClient.get("/api/card")
         console.log(result);
         this.cards = result.data
     }
