@@ -7,6 +7,6 @@ export default createRouter({
     routes: [
         {path: '/', component: MainComponent,},
         {path: '/main', component: MainComponent},
-        {path: '/cardGame', component: () => import('@/components/CardGame.vue')}
+        {path: '/cardGame', component: () => import('@/components/CardGameComponent.vue')}
     ]
 })
