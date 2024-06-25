@@ -2,11 +2,18 @@ import express from "express"
 import { MONGO, PORT } from "./config";
 import { connect } from "mongoose";
 import { cardRouter } from "./routers/cardRouter";
+import path from "path"
 const cors = require("cors")
 
 
 
 const app = express()
+app.use(express.static(path.join(__dirname, 'dist')));
+
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
 const corsOption = {
     origin: "https://inenglish.onrender.com",
