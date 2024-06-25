@@ -13,12 +13,13 @@ exports.cardRouter = void 0;
 const express_1 = require("express");
 const cardModel_1 = require("../models/cardModel");
 const router = (0, express_1.Router)();
-router.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get("/cardElement", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const result = yield cardModel_1.Card.find();
         if (!result)
             console.log("Empty base");
         res.status(200).send(result);
+        console.log(result);
     }
     catch (err) {
         console.log(err);

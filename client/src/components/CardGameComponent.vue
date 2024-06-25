@@ -61,7 +61,7 @@ export default {
         }
     },
     async mounted() {
-        const result = await apiClient.get("/api/card")
+        const result = await apiClient.get("/api/card/cardElement")
         console.log(result);
         this.cards = result.data
     }
