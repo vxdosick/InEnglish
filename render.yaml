@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: vue-app
+    env: node
+    buildCommand: cd client && npm install && npm run build
+    startCommand: cd server && npm install && node app.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
