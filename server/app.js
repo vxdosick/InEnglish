@@ -7,8 +7,13 @@ const express_1 = __importDefault(require("express"));
 const config_1 = require("./config");
 const mongoose_1 = require("mongoose");
 const cardRouter_1 = require("./routers/cardRouter");
+const path_1 = __importDefault(require("path"));
 const cors = require("cors");
 const app = (0, express_1.default)();
+app.use(express_1.default.static(path_1.default.join(__dirname, 'dist')));
+app.get('*', (req, res) => {
+    res.sendFile(path_1.default.join(__dirname, 'dist', 'index.html'));
+});
 const corsOption = {
     origin: "https://inenglish.onrender.com",
     optionsSuccessStatus: 200
