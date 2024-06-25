@@ -7,7 +7,13 @@ const express_1 = __importDefault(require("express"));
 const config_1 = require("./config");
 const mongoose_1 = require("mongoose");
 const cardRouter_1 = require("./routers/cardRouter");
+const cors = require("cors");
 const app = (0, express_1.default)();
+const corsOption = {
+    origin: "https://inenglish.onrender.com",
+    optionsSuccessStatus: 200
+};
+app.use(cors(corsOption));
 (0, mongoose_1.connect)(config_1.MONGO);
 console.log(config_1.MONGO, config_1.PORT);
 app.use(express_1.default.urlencoded({ extended: true }));
