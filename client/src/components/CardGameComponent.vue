@@ -29,7 +29,7 @@
                     <p class="main__wordtranscription">{{ el.transcription }}</p>
                     <h2 class="main__wordtranslated">{{ el.isTranslated ? el.translate : null }}</h2>
                     <button @click="translateWord(el)" class="main__translate">Translate</button>
-                    <!-- <button @click="deleteWord(el, i)" class="main__sliderclose">&times;</button> -->
+                    <button @click="deleteWord(el, i)" class="main__sliderclose">&times;</button>
                     <!-- <div class="main__addoverflow" v-if="isDeleteCheck == true">
                         <div class="main__addcontainer">
                             <button @click="openDeleteCheck" class="main__addclose">&times;</button>
