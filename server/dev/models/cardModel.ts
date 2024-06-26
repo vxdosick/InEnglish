@@ -15,7 +15,8 @@ const card = new Schema({
         required: true
     },
     isTranslated: {
-        type: Boolean, 
+        type: Boolean,
+        required: false,
         default: false
     }
 }, {collection: "cards"})

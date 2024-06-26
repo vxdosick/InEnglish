@@ -19,7 +19,32 @@ router.get("/cardElement", (req, res) => __awaiter(void 0, void 0, void 0, funct
         if (!result)
             console.log("Empty base");
         res.status(200).send(result);
-        console.log(result);
+    }
+    catch (err) {
+        console.log(err);
+    }
+}));
+router.post("/cardAddWord", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const word = new cardModel_1.Card(req.body);
+        const result = yield word.save();
+        if (!result)
+            console.log("Not Added");
+        res.status(200).send(result);
+        console.log("Word Added");
+    }
+    catch (err) {
+        console.log(err);
+    }
+}));
+router.delete("/cardDeleteWord/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        let result = yield cardModel_1.Card.deleteOne({ "_id": req.params.id }, { $set: req.query });
+        if (!result)
+            console.log("Not deleted");
+        res.status(200).send(result);
+        console.log("Word deleted");
+        res.end();
     }
     catch (err) {
         console.log(err);

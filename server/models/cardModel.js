@@ -18,6 +18,7 @@ const card = new mongoose_1.Schema({
     },
     isTranslated: {
         type: Boolean,
+        required: false,
         default: false
     }
 }, { collection: "cards" });
